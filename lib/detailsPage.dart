@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 class DetailsPage extends StatefulWidget {
-  final heroTag;
+
+  final  heroTag;
   final foodName;
   final foodPrice;
 
-  DetailsPage({this.heroTag, this.foodName, this.foodPrice});
+  const DetailsPage({super.key, this.heroTag, this.foodName, this.foodPrice});
 
   @override
   _DetailsPageState createState() => _DetailsPageState();

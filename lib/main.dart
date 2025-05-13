@@ -4,6 +4,8 @@ import 'package:fruit_hero/detailsPage.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -15,11 +17,13 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  MyHomePageState createState() => MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.white,
                   onPressed: () {},
                 ),
-                Container(
+                SizedBox(
                     width: 125.0,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -89,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: <Widget>[
                 Padding(
                     padding: EdgeInsets.only(top: 45.0),
-                    child: Container(
+                    child: SizedBox(
                         height: MediaQuery.of(context).size.height - 330.0,
                         child: ListView(children: [
                           _buildFoodItem(
@@ -171,31 +175,30 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Container(
-                    child: Row(children: [
-                  Hero(
-                      tag: imgPath,
-                      child: Image(
-                          image: AssetImage(imgPath),
-                          fit: BoxFit.cover,
-                          height: 75.0,
-                          width: 75.0)),
-                  SizedBox(width: 10.0),
-                  Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(foodName,
-                            style: TextStyle(
-                                fontFamily: 'Montserrat',
-                                fontSize: 17.0,
-                                fontWeight: FontWeight.bold)),
-                        Text(price,
-                            style: TextStyle(
-                                fontFamily: 'Montserrat',
-                                fontSize: 15.0,
-                                color: Colors.grey))
-                      ])
-                ])),
+                Row(children: [
+                                  Hero(
+                  tag: imgPath,
+                  child: Image(
+                      image: AssetImage(imgPath),
+                      fit: BoxFit.cover,
+                      height: 75.0,
+                      width: 75.0)),
+                                  SizedBox(width: 10.0),
+                                  Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(foodName,
+                        style: TextStyle(
+                            fontFamily: 'Montserrat',
+                            fontSize: 17.0,
+                            fontWeight: FontWeight.bold)),
+                    Text(price,
+                        style: TextStyle(
+                            fontFamily: 'Montserrat',
+                            fontSize: 15.0,
+                            color: Colors.grey))
+                  ])
+                                ]),
                 IconButton(
                     icon: Icon(Icons.add),
                     color: Colors.black,
